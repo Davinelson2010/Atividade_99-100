@@ -1,12 +1,12 @@
 //Crie a varíavel 'SpeechRecognition' que recebe 'window.webkitSpeechRecognition;'
 //O código 'window.webkitSpeechRecognition' é o código que inicializa a API, porém precisamos guardar essa API dentro de uma variável
-var SpeechRecognition = "window.webkitSpeechRecognition"
+var SpeechRecognition = window.webkitSpeechRecognition
 
 //A variável recognition precisa criar uma nova API do Web Speech, então utilize o código 'new' e coloque a variável criada na primeira linha
 var recognition = new SpeechRecognition();
 
 //Utilize o código que pega o TextBox do html e guarde dentro de uma vaiável
-var Textbox = document.getElementById("Textbox");
+var Textbox = document.getElementById("textbox");
 
 function start() {
     //Sempre que o botão iniciar é pressionado, queremos que a área de texto fique vazia. 
@@ -53,14 +53,14 @@ function speak() {
 
 
     //Declare a função 'setTimeOut, pois ela define o tempo em que a imagem será tirada e salva
-    setTimeOut(function () {
+    setTimeout(function () {
         take_selfie();
         //Coloque o nome da função que salva a imagem
         save();
         //Defina em quantos milisegundos a foto será tirada
         //5000 para 5 segundos
         //1000 para 1 segundo
-    }, 10000);
+    }, 5000);
 }
 
 
@@ -76,7 +76,7 @@ Webcam.set({
 function take_selfie() {
     Webcam.snap(function (data_uri) {
         //Utilize o código que altera o HTML, pois você quer ver a imagem na tela
-        document.getElementById("result").??? = '<img id="selfie_image" src="' + data_uri + '"/>';
+        document.getElementById("result").innerHTML = '<img id="selfie_image" src="' + data_uri + '"/>';
     });
 }
 
